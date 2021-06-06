@@ -87,7 +87,9 @@ include "db.php";
                     </div>
                     <?php 
                     if($rows_view['handling']&&$_SESSION['u_rank']=='admin'){
-                        echo "<div name='handling_check'><button onclick='handling_check.php?id='$id''>관리자확인</button></div>";
+                       ?>
+                     <div name='handling_check'><button onclick='location.href="handling_check.php?=id=<?=$id?>"'>관리자확인</button></div>
+                    <?php
                     }
                     ?>
                 </div>
