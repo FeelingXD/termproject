@@ -29,6 +29,12 @@
     float: left;
     background-color: lightblue;
   }
+
+  thead {
+    background-color: #464646;
+    color: white;
+  }
+
 </style>
 
 <?php
@@ -48,7 +54,7 @@ $max_result = 10;
   <div id="gear_main_title">
     기구 상태
   </div>
-  <table>
+  <table class="style1">
     <tr>
       <thead>
         <th>기구번호</th>
@@ -77,7 +83,7 @@ $max_result = 10;
   <div id="gear_sub1_title">
     처리완료
   </div>
-  <table>
+  <table class="style1">
     <thead>
       <th>id</th>
       <th>제목</th>
@@ -115,7 +121,7 @@ $max_result = 10;
     <?php
     // 테이블 php 작성할것
     ?>
-    <thead>
+    <thead class="style1">
       <th>id</th>
       <th>제목</th>
       <th>작성자</th>
