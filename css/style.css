@@ -141,4 +141,18 @@ div {
         display: inline-block;
         padding: 5px;
     }
+    /* 테이블 */
+    .style1 {
+        width: 100%;
+    }
+    .style1 td {
+        background-color: white;
+        text-align: center;
+    }
+    .style1 th {
+        background-color: #222;
+    }
 }
+
+
+/* 테이블 */

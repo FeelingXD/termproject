@@ -27,7 +27,7 @@ $page_start = ($page - 1) * $list;
 $sql_home_sub1 = mq("select * from notice order by id desc limit $page_start,$list");
 
 ?>
- <script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
 <style>
     #home_main {
         background-color: #111;
@@ -37,51 +37,70 @@ $sql_home_sub1 = mq("select * from notice order by id desc limit $page_start,$li
     }
 
     #home_sub1 {
-        background-color: #222;
+        background-color: lightblue;
         float: left;
         width: 100%;
         height: 75%;
+        
+    }
+
+    #home_main_title {
+        height: 10%;
+    }
+
+    #home_main_content {
+        width: 100%;
+        height: 90%;
+        border: 4px solid #E6A055;
+        background-color: green;
         color: white;
+        box-sizing: border-box
+    }
+
+    .sytle1 {
+        width: 100%;
     }
 </style>
 <div id="home_main">
-    <table>
-        <thead>최근 공지사항</thead>
-        <td>
-            <?php
-            if (!isset($rows_main['content'])) {
-                echo "등록된 공지사항이 없습니다.";
-            } else
-                echo $rows_main['content'];
-            ?></td>
-    </table>
+    <div id="home_main_title">
+        최근공지사항
+    </div>
+    <div id="home_main_content">
+        <?php
+        if (!isset($rows_main['content'])) {
+            echo "등록된 공지사항이 없습니다.";
+        } else
+            echo $rows_main['content'];
+        ?>
+    </div>
 </div>
+
 <div id="home_sub1">
     <!-- 공지메뉴-->
-    <table>
-        <thead>
-            <tr>
-                <td> id </td>
-                <td> 내용 </td>
-            </tr>
-            <?php
-            while ($board = $sql_home_sub1->fetch_array()) {
-                $content = $board['content'];
-                if (strlen($board['content'] > 30)) {
-                    $content = str_replace($board['content'], mb_substr($board["content"], 0, 30, "utf-8") . "...", $board['content']);
-                }
-            ?>
-        </thead>
-        <tbody>
-            <tr>
-                <!-- 내용 첨부할것 -->
-                <td><?= $board['id'] ?></td>
-                <td><?= $board['content'] ?></td>
-            </tr>
-        </tbody>
-    <?php
+    <table class="style1">
+    <thead>
+        <th>id</th>
+        <th>내용</th>
+    </thead>
+ 
+        <?php
+        while ($board = $sql_home_sub1->fetch_array()) {
+            $content = $board['content'];
+            if (strlen($board['content'] > 30)) {
+                $content = str_replace($board['content'], mb_substr($board["content"], 0, 30, "utf-8") . "...", $board['content']);
             }
-    ?>
+        ?>
+
+            <tbody>
+                <tr>
+                    <!-- 내용 첨부할것 -->
+                    <td><?= $board['id'] ?></td>
+                    <td><?= $board['content'] ?></td>
+                </tr>
+            </tbody>
+        <?php
+        }
+        ?>
     </table>
     <nav>
         <ul class="paging">
@@ -143,6 +162,6 @@ $sql_home_sub1 = mq("select * from notice order by id desc limit $page_start,$li
         </ul>
     </nav>
     <div>
-            <button id="write_content">글작성</button>
+        <button id="write_content">글작성</button>
     </div>
 </div>

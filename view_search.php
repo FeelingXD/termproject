@@ -18,18 +18,14 @@ $search = $_GET['search_target'];
     <link rel="stylesheet" href="./css/style.css"> <!--  스타일 시트 주소 -->
     <title>관리페이지</title>
     <style>
-        thead{
-            background-color: #464646;
-            color: white;
-        }
-        table{
+        .style1 {
             width: 100%;
         }
-        td{
+
+        .style1 td {
             background-color: white;
             text-align: center;
         }
-
     </style>
 </head>
 
@@ -63,7 +59,7 @@ $search = $_GET['search_target'];
                 <div id="title">
                     검색결과
                 </div>
-                <table>
+                <table class="style1">
                     <thead>
                         <th>id</th>
                         <th>제목</th>
