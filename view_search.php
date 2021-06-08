@@ -17,6 +17,20 @@ $search = $_GET['search_target'];
     <script type="text/javascript" src="./js/common.js"></script> <!-- 개인 스크립트 -->
     <link rel="stylesheet" href="./css/style.css"> <!--  스타일 시트 주소 -->
     <title>관리페이지</title>
+    <style>
+        thead{
+            background-color: #464646;
+            color: white;
+        }
+        table{
+            width: 100%;
+        }
+        td{
+            background-color: white;
+            text-align: center;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -65,8 +79,8 @@ $search = $_GET['search_target'];
 
                     $result = mq($query_search);
                     while ($rows_search = mysqli_fetch_array($result)) {
-                        echo '<tr><td>' . $rows_search['id'] .
-                            '</td><td><a href="view_content.php?id='
+                        echo '<tr><td style="width:10%">' . $rows_search['id'] .
+                            '</td><td style="width: 65%"><a href="view_content.php?id='
                             . $rows_search['id']
                             . '">'  . $rows_search['title'] .
                             '</a></td><td>' . $rows_search['writer'] . '</td><tr>';
